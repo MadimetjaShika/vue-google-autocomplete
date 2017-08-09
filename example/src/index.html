@@ -26,12 +26,15 @@
                   <p>Start typing an address to see the result returned from Google.</p>
                   <vuetify-google-autocomplete
                     id="map"
-                    classname="input"
+                    :append-icon="appendIcon"
+                    :prepend-icon="prependIcon"
+                    :classname="classname"
                     :placeholder="placeholderText"
+                    :disabled="disabled"
+                    :enable-geolocation="enableGeolocation"
                     :types="types"
                     :country="country"
-                    :enable-geolocation="enableGeolocation"
-                    v-on:placechanged="getAddressData"
+                    :placechanged="getAddressData"
                   >
                   </vuetify-google-autocomplete>
                 </v-container>
@@ -44,11 +47,20 @@
                   </v-layout>
                 </v-container>
               </v-card>
+              <br>
+              <v-card flat height="300px">
+                <v-toolbar flat dense class="black">
+                  <v-toolbar-title class="body-2" style="color: white;">Generated Code</v-toolbar-title>
+                </v-toolbar>
+                <v-container>
+                  <pre><code style="width: 100%;">{{ outputHtml }}</code></pre>
+                </v-container>
+              </v-card>
             </v-flex>
             <v-flex xs4>
               <v-card flat>
                 <v-toolbar flat dense class="black">
-                  <v-toolbar-title class="body-2" style="color: white;">Code</v-toolbar-title>
+                  <v-toolbar-title class="body-2" style="color: white;">Code Repositories</v-toolbar-title>
                 </v-toolbar>
                 <v-list dense class="grey lighten-5">
                   <v-list-tile>
@@ -73,12 +85,17 @@
               <v-card>
                 <v-card-row class="orange darken-1">
                   <v-toolbar flat dense class="black">
-                    <v-toolbar-title class="body-2" style="color: white;">Customization</v-toolbar-title>
+                    <v-toolbar-title class="body-2" style="color: white;">Properties</v-toolbar-title>
                   </v-toolbar>
                 </v-card-row>
                 <v-card-text>
                   <v-card-row>
-                    <v-text-field label="Placeholder Text" v-model="placeholderText"></v-text-field>    
+                    <v-text-field label="id" v-model="id"></v-text-field>
+                    <v-text-field label="append-icon" v-model="appendIcon"></v-text-field>
+                    <v-text-field label="prepend-icon" v-model="prependIcon"></v-text-field>
+                    <v-text-field label="classname" v-model="classname"></v-text-field>
+                    <v-text-field label="Placeholder Text" v-model="placeholderText"></v-text-field>
+                    <v-switch label="Disabled" v-model="disabled" color="secondary" hide-details></v-switch>  
                     <v-switch label="Enable Geolocation" v-model="enableGeolocation" color="secondary" hide-details></v-switch>
                     <v-select label="Types" v-bind:items="typesOptions" v-model="types" hint="Choose types" persistent-hint></v-select>
                     <v-select label="Countries" v-bind:items="countryOptions" v-model="country" multiple max-height="400" hint="Choose countries to limit search to" persistent-hint></v-select>

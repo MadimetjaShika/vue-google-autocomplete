@@ -14,6 +14,12 @@ const app = new Vue({
         gitHubLink: 'https://github.com/MadimetjaShika/vuetify-google-autocomplete',
         npmLink: 'https://www.npmjs.com/package/vuetify-google-autocomplete',
         address: {},
+        disabled: false,
+        id: 'map',
+        appendIcon: 'search',
+        prependIcon: '',
+        callbackFunction: 'getAddressData',
+        classname: '',
         placeholderText: 'Search Address',
         types: 'address',
         typesOptions: [
@@ -32,6 +38,24 @@ const app = new Vue({
             'mx'
         ],
         enableGeolocation: false,
+    },
+
+    computed: {
+        outputHtml: function(){
+            console.log('Hello output...');
+            return `<vuetify-google-autocomplete
+        id="${this.id}"
+        :appendIcon="${this.appendIcon}"
+        :prependIcon="${this.prependIcon}"
+        :classname="${this.classname}"
+        :placeholder="${this.placeholderText}"
+        :disabled="${this.disabled}"
+        :enable-geolocation="${this.enableGeolocation}"
+        :types="${this.types}"
+        :country="${this.country}"
+        :placechanged="${this.callbackFunction}">
+</vuetify-google-autocomplete>`;
+        },
     },
 
     methods: {
