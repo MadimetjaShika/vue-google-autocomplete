@@ -42,7 +42,7 @@
 
           placeholder: {
             type: String,
-            default: 'Start typing',
+            default: 'Search Address',
           },
 
           disabled: {
