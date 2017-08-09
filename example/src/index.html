@@ -50,8 +50,12 @@
               </v-card>
               <br>
               <v-card flat height="300px">
-                <v-toolbar flat dense class="black">
+                <v-toolbar flat dense class="grey lighten-1">
                   <v-toolbar-title class="body-2" style="color: white;">Generated HTML</v-toolbar-title>
+                  <v-spacer></v-spacer>
+                  <v-btn v-clipboard="outputHtml" @success="handleCodeCopySuccess('HTML')" @error="handleCodeCopyError('HTML')" icon>
+                    <v-icon>content_copy</v-icon>
+                  </v-btn>
                 </v-toolbar>
                 <v-container>
                   <pre><code style="width: 100%;">{{ outputHtml }}</code></pre>
@@ -59,8 +63,12 @@
               </v-card>
               <br>
               <v-card flat>
-                <v-toolbar flat dense class="black">
+                <v-toolbar flat dense class="grey lighten-1">
                   <v-toolbar-title class="body-2" style="color: white;">Generated JS</v-toolbar-title>
+                  <v-spacer></v-spacer>
+                  <v-btn v-clipboard="outputJs" @success="handleCodeCopySuccess('JS')" @error="handleCodeCopyError('JS')" icon>
+                    <v-icon>content_copy</v-icon>
+                  </v-btn>
                 </v-toolbar>
                 <v-container>
                   <pre><code style="width: 100%; word-wrap: break-word;">{{ outputJsData }}</code></pre>
@@ -71,7 +79,7 @@
             </v-flex>
             <v-flex xs4>
               <v-card flat>
-                <v-toolbar flat dense class="black">
+                <v-toolbar flat dense class="grey lighten-1">
                   <v-toolbar-title class="body-2" style="color: white;">Code Repositories</v-toolbar-title>
                 </v-toolbar>
                 <v-list dense class="grey lighten-5">
@@ -96,7 +104,7 @@
               <br>
               <v-card>
                 <v-card-row class="orange darken-1">
-                  <v-toolbar flat dense class="black">
+                  <v-toolbar flat dense class="grey lighten-1">
                     <v-toolbar-title class="body-2" style="color: white;">Properties</v-toolbar-title>
                   </v-toolbar>
                 </v-card-row>
@@ -119,6 +127,17 @@
           </v-layout>
         </v-container>
       </v-card>
+      <v-snackbar
+        :timeout="4000"
+        :success="snackbar.context === 'success'"
+        :info="snackbar.context === 'info'"
+        :warning="snackbar.context === 'warning'"
+        :error="snackbar.context === 'error'"
+        :primary="snackbar.context === 'primary'"
+        :secondary="snackbar.context === 'secondary'"
+        v-model="snackbar.visible"
+        >{{ snackbar.text }}<v-btn dark flat @click.native="snackbar.visible = false">Close</v-btn>
+      </v-snackbar>
     </main>
   </v-app>
   <script src="../dist/app.js"></script>
