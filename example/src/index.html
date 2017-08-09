@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Vuetify Google Autocomplete</title>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyJUwEpWPLTDZrX9TVeq5m8vGQScqyZCA&libraries=places"></script>
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet" type="text/css">
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet" type="text/css">
@@ -34,7 +35,7 @@
                     :enable-geolocation="enableGeolocation"
                     :types="types"
                     :country="country"
-                    :placechanged="getAddressData"
+                    v-on:placechanged="getAddressData"
                   >
                   </vuetify-google-autocomplete>
                 </v-container>
@@ -50,10 +51,21 @@
               <br>
               <v-card flat height="300px">
                 <v-toolbar flat dense class="black">
-                  <v-toolbar-title class="body-2" style="color: white;">Generated Code</v-toolbar-title>
+                  <v-toolbar-title class="body-2" style="color: white;">Generated HTML</v-toolbar-title>
                 </v-toolbar>
                 <v-container>
                   <pre><code style="width: 100%;">{{ outputHtml }}</code></pre>
+                </v-container>
+              </v-card>
+              <br>
+              <v-card flat>
+                <v-toolbar flat dense class="black">
+                  <v-toolbar-title class="body-2" style="color: white;">Generated JS</v-toolbar-title>
+                </v-toolbar>
+                <v-container>
+                  <pre><code style="width: 100%; word-wrap: break-word;">{{ outputJsData }}</code></pre>
+                  <br>
+                  <pre><code style="width: 100%; word-wrap: break-word;">{{ outputJsCallback }}</code></pre>
                 </v-container>
               </v-card>
             </v-flex>
@@ -99,6 +111,7 @@
                     <v-switch label="Enable Geolocation" v-model="enableGeolocation" color="secondary" hide-details></v-switch>
                     <v-select label="Types" v-bind:items="typesOptions" v-model="types" hint="Choose types" persistent-hint></v-select>
                     <v-select label="Countries" v-bind:items="countryOptions" v-model="country" multiple max-height="400" hint="Choose countries to limit search to" persistent-hint></v-select>
+                    <v-text-field label="Callback Function" v-model="callbackFunction"></v-text-field>
                   </v-card-row>
                 </v-card-text>
               </v-card>
