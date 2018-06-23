@@ -2,8 +2,6 @@ import { createLocalVue, mount } from 'vue-test-utils';
 import Vga from '@/vga/index';
 
 const localVue = createLocalVue();
-// localVue.use(VueEvents);
-// localVue.use(plugins);
 
 const propData = {
   id: 'input-field-id',
