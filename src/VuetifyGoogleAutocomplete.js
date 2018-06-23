@@ -30,7 +30,7 @@ export default {
       default: 'primary',
     },
     counter: {
-      type: [Boolean, Number],
+      type: [Boolean, Number, String],
       default: undefined,
     },
     country: {
@@ -89,17 +89,12 @@ export default {
       type: Boolean,
       default: false,
     },
-    loadGoogleApi: {
-      type: Boolean,
-      default: true,
-      required: false,
-    },
     loading: {
       type: [Boolean, String],
       default: false,
     },
     mask: {
-      type: String,
+      type: [Object, String],
       default: undefined,
     },
     multiLine: {
@@ -144,7 +139,7 @@ export default {
     },
     rowHeight: {
       type: [Number, String],
-      deffault: 24,
+      default: 24,
     },
     rows: {
       type: [Number, String],
