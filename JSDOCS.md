@@ -566,6 +566,7 @@ Component name. Returns 'vuetify-google-autocomplete'.
 Loads the Google Map API. Code adopted from [https://github.com/xkjyeah/vue-google-maps](https://github.com/xkjyeah/vue-google-maps)
 
 **Kind**: global function  
+**Acess**: private  
 **See**: [https://github.com/xkjyeah/vue-google-maps](https://github.com/xkjyeah/vue-google-maps)  
 
 | Param | Type | Description |
