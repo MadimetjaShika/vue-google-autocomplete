@@ -90,7 +90,7 @@
           </v-flex>
           <v-flex xs6>
             <v-card flat height="335px" class="text-xs-left">
-              <v-toolbar flat dense class="grey lighten-1">
+              <v-toolbar flat dense class="blue-grey lighten-3">
                 <v-toolbar-title
                   class="body-2"
                   style="color: white;"
@@ -115,7 +115,7 @@
           </v-flex>
           <v-flex xs6>
             <v-card flat class="text-xs-left">
-              <v-toolbar flat dense class="grey lighten-1">
+              <v-toolbar flat dense class="blue-grey lighten-3">
                 <v-toolbar-title class="body-2" style="color: white;">Generated JS</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-tooltip top>
@@ -153,9 +153,9 @@
       </v-snackbar>
     </v-content>
     <v-footer color="blue-grey lighten-3" class="white--text" app>
-      <span>Vuetify</span>
+      <span>Vuetify Google Autocomplete</span>
       <v-spacer></v-spacer>
-      <span>&copy; 2017</span>
+      <span></span>
     </v-footer>
   </v-app>
 </template>
