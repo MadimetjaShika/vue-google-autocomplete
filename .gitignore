@@ -3,3 +3,4 @@ node_modules
 mix-manifest.json
 example/dist
 dist
+docs

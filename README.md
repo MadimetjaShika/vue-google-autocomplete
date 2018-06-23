@@ -65,7 +65,9 @@ This component uses Google Maps Places API to get geo suggests for autocompletio
 
 To obtain API key please visit the [Google Developer Console](https://console.developers.google.com). The API's that you have to enable in your Google API Manager Dashboard are [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/start), [Google Places API Web Service](https://developers.google.com/places/web-service/) and [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/).
 
-## Usage
+## Usage and API
+
+> See ``JSDOCS.md`` for API documentation.
 
 ### For version >= 2.0.0-alpha.1
 

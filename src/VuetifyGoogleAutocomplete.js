@@ -1,203 +1,552 @@
+/**
+ * @module vuetify-google-autocomplete
+ */
 export default {
+  /**
+  * Component name. Returns 'vuetify-google-autocomplete'.
+  */
   name: 'vuetify-google-autocomplete',
+  /**
+   * @mixin
+   * @desc Exposed component props.
+   */
   props: {
+    /**
+     * Maps to Vuetify 'append-icon' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.append-icon
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {String}
+     */
     appendIcon: {
       type: String,
       default: undefined,
     },
+    /**
+     * Maps to Vuetify 'append-icon-cb' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.append-icon-cb
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Function}
+     */
     appendIconCb: {
       type: Function,
       default: null,
     },
+    /**
+     * Maps to Vuetify 'auto-grow' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.auto-grow
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     autoGrow: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'autofocus' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.autofocus
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     autofocus: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'box' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.box
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     box: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'clearable' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.clearable
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     clearable: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'color' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.color
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {String}
+     */
     color: {
       type: String,
       default: 'primary',
     },
+    /**
+     * Maps to Vuetify 'counter' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.counter
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean|Number|String}
+     */
     counter: {
       type: [Boolean, Number, String],
       default: undefined,
     },
+    /**
+     * Restrict the autocomplete search to a particular country or set of countries.
+     *
+     * @see {@link https://developers.google.com/places/web-service/autocomplete}
+     * @type {String|Array}
+     */
     country: {
       type: [String, Array],
       default: null,
     },
+    /**
+     * Maps to Vuetify 'dark' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.dark
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     dark: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'disabled' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.disabled
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     disabled: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'dont-fill-mask-blanks' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.dont-fill-mask-blanks
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     dontFillMaskBlanks: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Bias the search towards user's current location.
+     *
+     * @alias module:vuetify-google-autocomplete.props.enable-geolocation
+     * @see {@link https://developers.google.com/places/web-service/autocomplete}
+     * @type {Boolean}
+     */
     enableGeolocation: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'error' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.error
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     error: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'error-messages' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.error-messages
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Array}
+     */
     errorMessages: {
       type: Array,
       default: () => [],
     },
+    /**
+     * Maps to Vuetify 'flat' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.flat
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     flat: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'full-width' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.full-width
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     fullWidth: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'hide-details' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.hide-details
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     hideDetails: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'hint' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.hint
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {String}
+     */
     hint: {
       type: String,
       default: undefined,
     },
+    /**
+     * ID Attribute for the text field. Is required.
+     *
+     * @alias module:vuetify-google-autocomplete.props.id
+     * @type {String}
+     */
     id: {
       type: String,
       required: true,
     },
+    /**
+     * Maps to Vuetify 'label' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.label
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {String}
+     */
     label: {
       type: String,
       default: undefined,
     },
+    /**
+     * Maps to Vuetify 'light' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.light
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     light: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'loading' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.light
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean|String}
+     */
     loading: {
       type: [Boolean, String],
       default: false,
     },
+    /**
+     * Maps to Vuetify 'mask' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.mask
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Object|String}
+     */
     mask: {
       type: [Object, String],
       default: undefined,
     },
+    /**
+     * Maps to Vuetify 'multi-line' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.multi-line
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     multiLine: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'no-resize' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.no-resize
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     noResize: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'persistent-hint' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.persistent-hint
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     persistentHint: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'placeholder' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.placeholder
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {String}
+     */
     placeholder: {
       type: String,
       default: undefined,
     },
+    /**
+     * Maps to Vuetify 'prefix' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.prefix
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {String}
+     */
     prefix: {
       type: String,
       default: undefined,
     },
+    /**
+     * Maps to Vuetify 'prepend-icon' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.prepend-icon
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {String}
+     */
     prependIcon: {
       type: String,
       default: undefined,
     },
+    /**
+     * Maps to Vuetify 'prepend-icon-cb' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.prepend-icon-cb
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Function}
+     */
     prependIconCb: {
       type: Function,
       default: null,
     },
+    /**
+     * Maps to Vuetify 'readonly' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.readonly
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     readonly: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'required' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.required
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     required: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'return-masked-value' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.return-masked-value
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     returnMaskedValue: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'row-height' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.row-height
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Number|String}
+     */
     rowHeight: {
       type: [Number, String],
       default: 24,
     },
+    /**
+     * Maps to Vuetify 'rows' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.rows
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Number|String}
+     */
     rows: {
       type: [Number, String],
       default: 5,
     },
+    /**
+     * Maps to Vuetify 'rules' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.rules
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Array}
+     */
     rules: {
       type: Array,
       default: () => [],
     },
+    /**
+     * Maps to Vuetify 'single-line' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.single-line
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     singleLine: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'solo' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.solo
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     solo: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'solo-inverted' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.solo-inverted
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     soloInverted: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'suffix' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.suffix
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {String}
+     */
     suffix: {
       type: String,
       default: undefined,
     },
+    /**
+     * Maps to Vuetify 'tabindex' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.tabindex
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {*}
+     */
     tabindex: {
       default: 0,
     },
+    /**
+     * Maps to Vuetify 'textarea' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.textarea
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     textarea: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'toggle-keys' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.toggle-keys
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Array}
+     */
     toggleKeys: {
       type: Array,
       default: () => [13, 32],
     },
+    /**
+     * Maps to Vuetify 'type' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.type
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {String}
+     */
     type: {
       type: String,
       default: 'text',
     },
+    /**
+     * Types supported in place autocomplete requests.
+     *
+     * @alias module:vuetify-google-autocomplete.props.types
+     * @see {@link https://developers.google.com/places/supported_types#table3}
+     * @see {@link https://developers.google.com/places/web-service/autocomplete}
+     * @type {String}
+     */
     types: {
       type: String,
       default: 'address',
     },
+    /**
+     * Maps to Vuetify 'validate-on-blur' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.validate-on-blur
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {Boolean}
+     */
     validateOnBlur: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Maps to Vuetify 'value' prop.
+     *
+     * @alias module:vuetify-google-autocomplete.props.value
+     * @see {@link https://vuetifyjs.com/en/components/text-fields}
+     * @type {String}
+     */
     value: {
       type: String,
       default: undefined,
       required: false,
     },
   },
+  /**
+   * @mixin
+   * @desc See code for members.
+   */
   data: () => ({
     /**
      * The Autocomplete object.
-     *
+     * @access private
      * @type {Autocomplete}
      * @link https://developers.google.com/maps/documentation/javascript/reference#Autocomplete
      */
@@ -205,28 +554,37 @@ export default {
 
     /**
      * Autocomplete input text
+     * @access private
      * @type {String}
      */
     autocompleteText: '',
 
     /**
      * Indicates if the Geolocate has already been set.
+     * @access private
      */
     geolocateSet: false,
 
     /**
      * Interval for loading Google Maps.
+     * @access private
      */
     loadInterval: null,
 
     /**
      * Global Google Maps State Watcher.
+     * @access private
      */
     vgaMapState: null,
   }),
+  /**
+   * @mixin
+   * @desc See code for members.
+   */
   methods: {
     /**
-     * When the input gets focus
+     * Called when the input gets focus
+     * @access private
      */
     onFocus() {
       this.geolocate();
@@ -234,22 +592,25 @@ export default {
     },
 
     /**
-     * When the input loses focus
+     * Called when the input loses focus
+     * @access private
      */
     onBlur() {
       this.$emit('blur');
     },
 
     /**
-     * When the input got changed
+     * Called when the input got changed
+     * @access private
      */
     onChange() {
       this.$emit('change', this.autocompleteText);
     },
 
     /**
-     * When a key gets pressed
-     * @param  {Event} event A keypress event
+     * Called when a key gets pressed
+     * @param {Event} event A keypress event
+     * @access private
      */
     onKeyPress(event) {
       this.$emit('keypress', event);
@@ -257,6 +618,7 @@ export default {
 
     /**
      * Clear the input
+     * @access private
      */
     clear() {
       this.autocompleteText = '';
@@ -264,6 +626,7 @@ export default {
 
     /**
      * Focus the input
+     * @access private
      */
     focus() {
       this.$refs.autocomplete.focus();
@@ -271,6 +634,7 @@ export default {
 
     /**
      * Blur the input
+     * @access private
      */
     blur() {
       this.$refs.autocomplete.blur();
@@ -278,14 +642,18 @@ export default {
 
     /**
      * Update the value of the input
-     * @param  {String} value
+     * @param {String} value The value to update to.
+     * @access private
      */
     update(value) {
       this.autocompleteText = value;
     },
 
-    // Bias the autocomplete object to the user's geographical location,
-    // as supplied by the browser's 'navigator.geolocation' object.
+    /**
+    * Bias the autocomplete object to the user's geographical location,
+    * as supplied by the browser's 'navigator.geolocation' object.
+    * @access private
+    */
     geolocate() {
       if (this.enableGeolocation && !this.geolocateSet) {
         if (navigator.geolocation) {
@@ -382,10 +750,17 @@ export default {
       });
     },
   },
+  /**
+   * @mixin
+   * @desc Updates the autocompleteText member if a v-model was provided.
+   */
   created() {
-    // Set the default model if provided.
     this.autocompleteText = this.value ? this.value : '';
   },
+  /**
+   * @mixin
+   * @desc Loads the Google Autocomplete SDK.
+   */
   mounted() {
     this.vgaMapState = window.vgaMapState;
     if (Object.prototype.hasOwnProperty.call(window, 'google') && Object.prototype.hasOwnProperty.call(window, 'maps')) {
@@ -393,10 +768,18 @@ export default {
       this.setupGoogle();
     }
   },
+  /**
+   * @mixin
+   * @desc Resets the autocomplete loaded state.
+   */
   destroyed() {
     // trip this on the way out so we can differentiate return trips in mounted()
     window.vgaMapState.initMap = false;
   },
+  /**
+   * @mixin
+   * @desc See code.
+   */
   render(createElement) {
     const self = this;
     return createElement('v-text-field', {
@@ -483,6 +866,9 @@ export default {
       },
     }, []);
   },
+  /**
+   * @mixin
+   */
   watch: {
     /**
     * Emit the new autocomplete text whenever it changes.
