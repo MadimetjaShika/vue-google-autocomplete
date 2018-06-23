@@ -8,7 +8,7 @@
  *
  * Adapted from {@link https://github.com/xkjyeah/vue-google-maps}
  * @see {@link https://github.com/xkjyeah/vue-google-maps}
- * @acess private
+ * @access private
  */
 const loadGoogleMaps = (apiKey, version) => {
   try {

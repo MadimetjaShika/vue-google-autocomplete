@@ -4,21 +4,6 @@
 
 For more detailed HTML output of the JSDocs, refer to the ``./docs`` directory.
 
-## Modules
-
-<dl>
-<dt><a href="#module_vuetify-google-autocomplete">vuetify-google-autocomplete</a></dt>
-<dd></dd>
-</dl>
-
-## Functions
-
-<dl>
-<dt><a href="#loadGoogleMaps">loadGoogleMaps(apiKey, version)</a></dt>
-<dd><p>Loads the Google Map API. Code adopted from <a href="https://github.com/xkjyeah/vue-google-maps">https://github.com/xkjyeah/vue-google-maps</a></p>
-</dd>
-</dl>
-
 <a name="module_vuetify-google-autocomplete"></a>
 
 ## vuetify-google-autocomplete
@@ -560,17 +545,3 @@ Update the SDK types option whenever it changes from the parent.
 Component name. Returns 'vuetify-google-autocomplete'.
 
 **Kind**: static property of [<code>vuetify-google-autocomplete</code>](#module_vuetify-google-autocomplete)  
-<a name="loadGoogleMaps"></a>
-
-## loadGoogleMaps(apiKey, version)
-Loads the Google Map API. Code adopted from [https://github.com/xkjyeah/vue-google-maps](https://github.com/xkjyeah/vue-google-maps)
-
-**Kind**: global function  
-**Acess**: private  
-**See**: [https://github.com/xkjyeah/vue-google-maps](https://github.com/xkjyeah/vue-google-maps)  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| apiKey | <code>string</code> \| <code>object</code> | API Key, or object with the URL parameters. For example to use the Google Maps Premium API, pass { client: <YOUR-CLIENT-ID> }. You may pass the ersion (as 'v) as a property on this parameter. |
-| version | <code>string</code> | Google Maps SDK Version. Adapted from [https://github.com/xkjyeah/vue-google-maps](https://github.com/xkjyeah/vue-google-maps) |
-
