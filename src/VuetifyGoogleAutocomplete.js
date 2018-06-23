@@ -194,39 +194,36 @@ export default {
       required: false,
     },
   },
-  // eslint-disable-next-line
-  data: () => {
-    return {
-      /**
-       * The Autocomplete object.
-       *
-       * @type {Autocomplete}
-       * @link https://developers.google.com/maps/documentation/javascript/reference#Autocomplete
-       */
-      autocomplete: null,
+  data: () => ({
+    /**
+     * The Autocomplete object.
+     *
+     * @type {Autocomplete}
+     * @link https://developers.google.com/maps/documentation/javascript/reference#Autocomplete
+     */
+    autocomplete: null,
 
-      /**
-       * Autocomplete input text
-       * @type {String}
-       */
-      autocompleteText: '',
+    /**
+     * Autocomplete input text
+     * @type {String}
+     */
+    autocompleteText: '',
 
-      /**
-       * Indicates if the Geolocate has already been set.
-       */
-      geolocateSet: false,
+    /**
+     * Indicates if the Geolocate has already been set.
+     */
+    geolocateSet: false,
 
-      /**
-       * Interval for loading Google Maps.
-       */
-      loadInterval: null,
+    /**
+     * Interval for loading Google Maps.
+     */
+    loadInterval: null,
 
-      /**
-       * Global Google Maps State Watcher.
-       */
-      vgaMapState: null,
-    };
-  },
+    /**
+     * Global Google Maps State Watcher.
+     */
+    vgaMapState: null,
+  }),
   methods: {
     /**
      * When the input gets focus
@@ -369,11 +366,11 @@ export default {
 
           returnData.latitude = place.geometry.location.lat();
           returnData.longitude = place.geometry.location.lng();
-          
+
           // additional fields available in google places results
-          returnData.name = place.name
-          returnData.photos = place.photos
-          returnData.place_id = place.place_id
+          returnData.name = place.name;
+          returnData.photos = place.photos;
+          returnData.place_id = place.place_id;
 
           // return returnData object and PlaceResult object
           this.$emit('placechanged', returnData, place, this.id);
@@ -391,7 +388,7 @@ export default {
   },
   mounted() {
     this.vgaMapState = window.vgaMapState;
-    if (window.hasOwnProperty('google') && window.google.hasOwnProperty('maps')) {
+    if (Object.prototype.hasOwnProperty.call(window, 'google') && Object.prototype.hasOwnProperty.call(window, 'maps')) {
       // we've been here before. just need to get Autocomplete loaded
       this.setupGoogle();
     }
