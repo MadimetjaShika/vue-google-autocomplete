@@ -1,5 +1,6 @@
 /**
  * @module vuetify-google-autocomplete
+ * @author Madimetja Shika <madi@mjshika.xyz>
  */
 export default {
   /**

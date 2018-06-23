@@ -22,6 +22,7 @@ For more detailed HTML output of the JSDocs, refer to the ``./docs`` directory.
 <a name="module_vuetify-google-autocomplete"></a>
 
 ## vuetify-google-autocomplete
+**Author**: Madimetja Shika <madi@mjshika.xyz>  
 
 * [vuetify-google-autocomplete](#module_vuetify-google-autocomplete)
     * [.props](#module_vuetify-google-autocomplete.props)
