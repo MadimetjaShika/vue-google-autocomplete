@@ -49,9 +49,11 @@
       <v-toolbar-title>Vuetify Google Autocomplete</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-tooltip left></v-tooltip>
-      <v-btn icon><v-icon>chrome_reader_mode</v-icon></v-btn>
-      <v-btn icon><v-icon>fa-github</v-icon></v-btn>
-      <v-btn icon><img :src="npmIcon" class="icon icons8-NPM" width="40" height="40"></v-btn>
+      <v-btn :href="docsLink" icon><v-icon>chrome_reader_mode</v-icon></v-btn>
+      <v-btn :href="githubLink" icon><v-icon>fa-github</v-icon></v-btn>
+      <v-btn :href="npmLink" icon>
+        <img :src="npmIcon" class="icon icons8-NPM" width="40" height="40">
+      </v-btn>
       <v-toolbar-side-icon @click.stop="drawerRight = !drawerRight"></v-toolbar-side-icon>
     </v-toolbar>
     <v-content>
@@ -169,8 +171,6 @@ export default {
   data: () => ({
     autocompleteModel: 'Some Default Location...',
     vueGoogleAutocompleteLink: 'https://github.com/olefirenko/vue-google-autocomplete',
-    gitHubLink: 'https://github.com/MadimetjaShika/vuetify-google-autocomplete',
-    npmLink: 'https://www.npmjs.com/package/vuetify-google-autocomplete',
     snackbar: {
       text: '',
       visible: '',
@@ -204,6 +204,9 @@ export default {
     ],
     drawerRight: true,
     left: null,
+    githubLink: 'https://github.com/MadimetjaShika/vuetify-google-autocomplete',
+    npmLink: 'https://www.npmjs.com/package/vuetify-google-autocomplete',
+    docsLink: 'https://www.npmjs.com/package/vuetify-google-autocomplete',
     npmIcon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAA6ElEQVRoQ+2Yaw7CIBCEl+vo/Y+i16kxMVETmgGGLW3y9S/dgXkshZa4+FMuvv6AwGoHcQAHTAWIkCmgXY4DtoQmAA6YAtrlOGBLaAKUR8RmYiwth8BS+SPiz4Hb1pamZ/n2fmbNnji/80Pg9A7U4qIiNKvmHSGFJSOkAGoOzKqBQIsCOPDZK/f6SsUxpQdq+/dI47ckAAKzvgNTIjRyrlFNPILZU2OfRiHQI3fl3aErZc8l6B65f8AhoBJwSgfUoo8cH4rQkQtUc0FAKZQ9jgPZCit8HFAKZY/jQLbCCh8HlELZ45d34AVLqehFzhuaFgAAAABJRU5ErkJggg==',
   }),
   computed: {
