@@ -278,17 +278,17 @@ Fork, then clone the repo:
 
 Install dependencies with **npm**
 
-    npm install 
-    
+    npm install
+
    or **yarn**
-    
+
     yarn
 
 
 Make your changes and ensure tests are written for your changes. Ensure that your changes pass all the tests:
 
     npm run test
-    
+
 If relevant, please ensure that you update the README and demo/example accordingly.
 
 Push to your fork and [submit a pull request](https://github.com/MadimetjaShika/vuetify-google-autocomplete/compare/).
