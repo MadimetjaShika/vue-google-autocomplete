@@ -14,12 +14,13 @@
     "dist-vga"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/MadimetjaShika/vuetify-google-autocomplete",
+  "homepage": "git@github.com:MadimetjaShika/vuetify-google-autocomplete",
   "repository": {
     "type": "git",
     "url": "https://github.com/MadimetjaShika/vuetify-google-autocomplete.git"
   },
   "scripts": {
+    "deploy": "npm run docs && cp -rf ./docs ./dist && node ./node_modules/vue-gh-pages/index.js -b gh-pages -o ./dist",
     "deploy:example": "npm run docs && cp -rf docs example && gh-pages -d example/dist example/docs",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "docs": "./node_modules/.bin/jsdoc -c jsdoc.json && node ./update-docs.js",
@@ -83,6 +84,7 @@
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
     "vue-clipboards": "^1.2.4",
+    "vue-gh-pages": "^1.16.3",
     "vue-jest": "^1.0.2",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
