@@ -33,7 +33,7 @@ For more detailed HTML output of the JSDocs, refer to the ``./docs`` directory.
         * [.id](#module_vuetify-google-autocomplete.props.id) : <code>String</code>
         * [.label](#module_vuetify-google-autocomplete.props.label) : <code>String</code>
         * [.light](#module_vuetify-google-autocomplete.props.light) : <code>Boolean</code>
-        * [.light](#module_vuetify-google-autocomplete.props.light) : <code>Boolean</code> \| <code>String</code>
+        * [.loading](#module_vuetify-google-autocomplete.props.loading) : <code>Boolean</code> \| <code>String</code>
         * [.mask](#module_vuetify-google-autocomplete.props.mask) : <code>Object</code> \| <code>String</code>
         * [.multi-line](#module_vuetify-google-autocomplete.props.multi-line) : <code>Boolean</code>
         * [.no-resize](#module_vuetify-google-autocomplete.props.no-resize) : <code>Boolean</code>
@@ -102,7 +102,7 @@ Exposed component props.
     * [.id](#module_vuetify-google-autocomplete.props.id) : <code>String</code>
     * [.label](#module_vuetify-google-autocomplete.props.label) : <code>String</code>
     * [.light](#module_vuetify-google-autocomplete.props.light) : <code>Boolean</code>
-    * [.light](#module_vuetify-google-autocomplete.props.light) : <code>Boolean</code> \| <code>String</code>
+    * [.loading](#module_vuetify-google-autocomplete.props.loading) : <code>Boolean</code> \| <code>String</code>
     * [.mask](#module_vuetify-google-autocomplete.props.mask) : <code>Object</code> \| <code>String</code>
     * [.multi-line](#module_vuetify-google-autocomplete.props.multi-line) : <code>Boolean</code>
     * [.no-resize](#module_vuetify-google-autocomplete.props.no-resize) : <code>Boolean</code>
@@ -282,9 +282,9 @@ Maps to Vuetify 'light' prop.
 
 **Kind**: static property of [<code>props</code>](#module_vuetify-google-autocomplete.props)  
 **See**: [https://vuetifyjs.com/en/components/text-fields](https://vuetifyjs.com/en/components/text-fields)  
-<a name="module_vuetify-google-autocomplete.props.light"></a>
+<a name="module_vuetify-google-autocomplete.props.loading"></a>
 
-#### props.light : <code>Boolean</code> \| <code>String</code>
+#### props.loading : <code>Boolean</code> \| <code>String</code>
 Maps to Vuetify 'loading' prop.
 
 **Kind**: static property of [<code>props</code>](#module_vuetify-google-autocomplete.props)  

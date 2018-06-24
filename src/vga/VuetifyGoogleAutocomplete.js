@@ -255,7 +255,7 @@ export default {
     /**
      * Maps to Vuetify 'loading' prop.
      *
-     * @alias module:vuetify-google-autocomplete.props.light
+     * @alias module:vuetify-google-autocomplete.props.loading
      * @see {@link https://vuetifyjs.com/en/components/text-fields}
      * @type {Boolean|String}
      */
