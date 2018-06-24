@@ -67,8 +67,6 @@ To obtain API key please visit the [Google Developer Console](https://console.de
 
 ## Usage and API
 
-> See ``JSDOCS.md`` for API documentation.
-
 ### For version >= 2.0.0-alpha.1
 
 Simply start using the component in your HTML.
@@ -108,6 +106,8 @@ In your template you can use this syntax:
 ```
 
 ### Properties
+
+> See [Props API](https://madimetjashika.github.io/vuetify-google-autocomplete/docs/module-vuetify-google-autocomplete.props.html) or [JSDOCS.md](https://github.com/MadimetjaShika/vuetify-google-autocomplete/blob/dev/JSDOCS.md) file for a complete "living" definition of all props supported by this library.
 
 > NB: This componenent implements the same props as those specified for [Vuetify Text Fields](https://vuetifyjs.com/components/text-fields) as at v1.0.3, **some** of which are listed below. Please see [Vuetify Text Fields](https://vuetifyjs.com/components/text-fields) for a complete list of available props.
 

@@ -206,7 +206,7 @@ export default {
     left: null,
     githubLink: 'https://github.com/MadimetjaShika/vuetify-google-autocomplete',
     npmLink: 'https://www.npmjs.com/package/vuetify-google-autocomplete',
-    docsLink: 'https://www.npmjs.com/package/vuetify-google-autocomplete',
+    docsLink: 'https://madimetjashika.github.io/vuetify-google-autocomplete/docs/',
     npmIcon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAA6ElEQVRoQ+2Yaw7CIBCEl+vo/Y+i16kxMVETmgGGLW3y9S/dgXkshZa4+FMuvv6AwGoHcQAHTAWIkCmgXY4DtoQmAA6YAtrlOGBLaAKUR8RmYiwth8BS+SPiz4Hb1pamZ/n2fmbNnji/80Pg9A7U4qIiNKvmHSGFJSOkAGoOzKqBQIsCOPDZK/f6SsUxpQdq+/dI47ckAAKzvgNTIjRyrlFNPILZU2OfRiHQI3fl3aErZc8l6B65f8AhoBJwSgfUoo8cH4rQkQtUc0FAKZQ9jgPZCit8HFAKZY/jQLbCCh8HlELZ45d34AVLqehFzhuaFgAAAABJRU5ErkJggg==',
   }),
   computed: {

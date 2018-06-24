@@ -55,12 +55,18 @@ function editForProduction() {
                     console.log('Error copying docs over: ', error);
                     return console.error(err);
                 }
-                console.log('Docs Copies!');
+                console.log('JSDocs Copied!');
             });
 
             // Publish to Github Pages.
             console.log('Publishing docs to gh-pages branch...');
-            ghpages.publish('docs-publish', function(error) {
+
+            let publishOptions = {
+                src: '**/*',
+                message: 'Github pages updates.'
+            }
+
+            ghpages.publish('docs-publish', publishOptions, function(error) {
                 if (error) {
                     console.log('Push to remote gh-pages branch failed: ', error);
                     return console.error(error);
