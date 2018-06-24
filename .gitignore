@@ -1,7 +1,8 @@
 .DS_Store
 node_modules/
 /dist/
-/dist-vga/
+/docs/
+/docs-publish/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

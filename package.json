@@ -21,9 +21,6 @@
   },
   "scripts": {
     "deploy": "node publish-pages.js",
-    // "deploy": "npm run docs && mkdir -p ./docs/docs-vga && cp -rf ./docs-vga ./docs && node ./node_modules/vue-gh-pages/index.js -p -b gh-pages",
-    // "deploy:docs": "npm run docs && npm run deploy && cp -rf ./docs-vga ./docs && gh-pages -d docs/docs-vga docs/docs-vga",
-    // "deploy:example": "npm run docs && cp -rf docs example && gh-pages -d example/dist example/docs",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "docs": "./node_modules/.bin/jsdoc -c jsdoc.json && node ./update-docs.js",
     "start": "npm run dev",
