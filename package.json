@@ -20,7 +20,7 @@
     "url": "https://github.com/MadimetjaShika/vuetify-google-autocomplete.git"
   },
   "scripts": {
-    "deploy": "npm run docs && cp -rf ./docs ./dist && node ./node_modules/vue-gh-pages/index.js -b gh-pages -o ./dist",
+    "deploy": "npm run docs && mkdir -p ./docs/docs-vga && cp -rf ./docs-vga ./docs && node ./node_modules/vue-gh-pages/index.js -p -b gh-pages",
     "deploy:example": "npm run docs && cp -rf docs example && gh-pages -d example/dist example/docs",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "docs": "./node_modules/.bin/jsdoc -c jsdoc.json && node ./update-docs.js",
