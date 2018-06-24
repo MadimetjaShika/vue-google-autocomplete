@@ -9,9 +9,9 @@
     "google",
     "autocomplete"
   ],
-  "main": "dist-vga/index.js",
+  "main": "lib/index.js",
   "files": [
-    "dist-vga"
+    "lib"
   ],
   "license": "MIT",
   "homepage": "git@github.com:MadimetjaShika/vuetify-google-autocomplete",
@@ -28,7 +28,7 @@
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
     "build": "node build/build.js",
-    "build-vga": "mkdir -p ./dist-vga && babel ./src/vga/ -d ./dist-vga"
+    "build:lib": "mkdir -p ./lib && babel ./src/vga/ -d ./lib",
   },
   "dependencies": {},
   "devDependencies": {
