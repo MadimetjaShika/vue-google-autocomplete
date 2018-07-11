@@ -12,7 +12,7 @@ beforeEach(() => {
 
 describe('Ensure component props behave as expected', () => {
   describe('addressComponents', () => {
-    test('Should have default if not provided', () => {
+    test('Should have default value if not provided', () => {
       const defaultAddressCompoentValue = {
         street_number: 'short_name',
         route: 'long_name',
