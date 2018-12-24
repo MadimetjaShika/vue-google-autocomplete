@@ -636,13 +636,6 @@ export default {
     autocomplete: null,
 
     /**
-     * Autocomplete input text
-     * @access private
-     * @type {String}
-     */
-    autocompleteText: '',
-
-    /**
      * Indicates if the Geolocate has already been set.
      * @access private
      */
@@ -687,7 +680,7 @@ export default {
      * @access private
      */
     onChange() {
-      this.$emit('change', this.autocompleteText);
+      this.$emit('change', this.value);
     },
 
     /**
@@ -704,7 +697,7 @@ export default {
      * @access private
      */
     clear() {
-      this.autocompleteText = '';
+      this.value = '';
     },
 
     /**
@@ -729,7 +722,7 @@ export default {
      * @access private
      */
     update(value) {
-      this.autocompleteText = value;
+      this.value = value;
     },
 
     /**
@@ -817,19 +810,12 @@ export default {
           // return returnData object and PlaceResult object
           this.$emit('placechanged', returnData, place, this.id);
 
-          // update autocompleteText then emit change event
-          this.autocompleteText = document.getElementById(this.id).value;
+          // update value then emit change event
+          this.value = document.getElementById(this.id).value;
           this.onChange();
         }
       });
     },
-  },
-  /**
-   * @mixin
-   * @desc Updates the autocompleteText member if a v-model was provided.
-   */
-  created() {
-    this.autocompleteText = this.value ? this.value : '';
   },
   /**
    * @mixin
@@ -912,15 +898,12 @@ export default {
         textarea: self.textarea,
         'toggle-keys': self.toggleKeys,
         type: self.type,
-        value: self.value || self.autocompleteText,
+        value: self.value,
         'validate-on-blur': self.validateOnBlur,
         '@focus': self.onFocus(),
         '@blur': self.onFocus(),
         '@change': self.onChange(),
         '@keypress': self.onKeyPress(),
-      },
-      domProps: {
-        // value: self.autocompleteText,
       },
       on: {
         focus: () => {
@@ -941,7 +924,7 @@ export default {
             self.$emit('input', event.target.value);
           } else {
             // clear was pressed, reset this
-            self.autocompleteText = '';
+            self.value = '';
             self.$emit('placechanged', null);
           }
         },
@@ -955,7 +938,7 @@ export default {
     /**
     * Emit the new autocomplete text whenever it changes.
     */
-    autocompleteText: function autocompleteText(newVal) {
+    value: function value(newVal) {
       this.$emit('input', newVal || '');
     },
 

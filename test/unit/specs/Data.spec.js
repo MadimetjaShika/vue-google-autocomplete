@@ -21,13 +21,13 @@ describe('Ensure component data properties behave as expected', () => {
     });
   });
 
-  describe('autocompleteText', () => {
-    test('Should have "" as default', () => {
+  describe('value', () => {
+    test('Should have "undefined" as default', () => {
       const wrapper = mount(Vga, {
         localVue,
         propsData: mandatoryProps,
       });
-      expect(wrapper.vm.autocompleteText).toBe('');
+      expect(wrapper.vm.value).toBeUndefined();
     });
   });
 

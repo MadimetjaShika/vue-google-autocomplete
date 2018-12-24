@@ -30,7 +30,7 @@ describe('Ensure Has correct init meta data', () => {
 
 describe('Ensure Lifecycle hooks behave as expected', () => {
   describe('Created', () => {
-    test('Should set autocompleteText propertly if v-model provided', () => {
+    test('Should set value propertly if v-model provided', () => {
       const props = {
         id: 'a prop',
         value: 'Default v-model value',
@@ -39,11 +39,11 @@ describe('Ensure Lifecycle hooks behave as expected', () => {
         localVue,
         propsData: props,
       });
-      expect(wrapper.vm.autocompleteText).toBe('Default v-model value');
+      expect(wrapper.vm.value).toBe('Default v-model value');
     });
 
-    test('Should set autocompleteText propertly if v-model NOT provided', () => {
-      expect(wrapper.vm.autocompleteText).toBe('');
+    test('Should set value propertly if v-model NOT provided', () => {
+      expect(wrapper.vm.value).toBeUndefined();
     });
   });
 
