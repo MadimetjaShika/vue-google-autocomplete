@@ -544,6 +544,15 @@ export default {
       default: () => [],
     },
     /**
+     * Requires an address selection if the user changes the text.
+     *
+     * @type {Boolean}
+     */
+    selectionRequired: {
+      type: Boolean,
+      default: false,
+    },
+    /**
      * Maps to Vuetify 'shaped' prop.
      *
      * @alias module:vuetify-google-autocomplete.props.shaped
@@ -724,13 +733,6 @@ export default {
     autocomplete: null,
 
     /**
-     * Autocomplete input text
-     * @access private
-     * @type {String}
-     */
-    autocompleteText: '',
-
-    /**
      * Indicates if the Geolocate has already been set.
      * @access private
      */
@@ -747,7 +749,35 @@ export default {
      * @access private
      */
     vgaMapState: null,
+
+    /**
+     * Identifies if user has selected an option yet.
+     * @access private
+     * @type {String}
+     */
+    lastSelectedPlace: '',
   }),
+  computed: {
+    rulesPlusInternalRules() {
+      const enforceSelectionRequired = () => {
+        if (this.selectionRequired && this.lastSelectedPlace !== this.autocompleteText) {
+          return 'Please select an address from the list.';
+        }
+
+        return true;
+      };
+
+      return [...this.rules, enforceSelectionRequired];
+    },
+    autocompleteText: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit('input', value);
+      },
+    },
+  },
   /**
    * @mixin
    * @desc See code for members.
@@ -861,15 +891,6 @@ export default {
     },
 
     /**
-     * Update the value of the input
-     * @param {String} value The value to update to.
-     * @access private
-     */
-    update(value) {
-      this.autocompleteText = value;
-    },
-
-    /**
      * Bias the autocomplete object to the user's geographical location,
      * as supplied by the browser's 'navigator.geolocation' object.
      * @access private
@@ -938,9 +959,9 @@ export default {
         const returnData = {};
 
         if (place.name !== undefined && this.placeName) {
-          document.getElementById(this.id).value = place.name;
+          this.autocompleteText = place.name;
         } else if (place.formatted_address !== undefined) {
-          document.getElementById(this.id).value = place.formatted_address;
+          this.autocompleteText = place.formatted_address;
         }
 
         if (place.address_components !== undefined) {
@@ -969,12 +990,12 @@ export default {
             returnData.place_id = place.place_id;
           }
 
+          this.lastSelectedPlace = this.autocompleteText;
+
+          // emit changed event
+          this.onChange();
           // return returnData object and PlaceResult object
           this.$emit('placechanged', returnData, place, this.id);
-
-          // update autocompleteText then emit change event
-          this.autocompleteText = document.getElementById(this.id).value;
-          this.onChange();
         }
       });
     },
@@ -984,7 +1005,7 @@ export default {
    * @desc Updates the autocompleteText member if a v-model was provided.
    */
   created() {
-    this.autocompleteText = this.value ? this.value : '';
+    this.lastSelectedPlace = this.autocompleteText;
   },
   /**
    * @mixin
@@ -1062,7 +1083,7 @@ export default {
         reverse: self.reverse,
         rounded: self.rounded,
         rows: self.rows,
-        rules: self.rules,
+        rules: self.rulesPlusInternalRules,
         ref: 'autocomplete',
         shaped: self.shaped,
         'single-line': self.singleLine,
@@ -1075,7 +1096,7 @@ export default {
         textarea: self.textarea,
         'toggle-keys': self.toggleKeys,
         type: self.type,
-        value: self.value || self.autocompleteText,
+        value: self.autocompleteText,
         'validate-on-blur': self.validateOnBlur,
         '@focus': self.onFocus(),
         '@blur': self.onFocus(),
@@ -1122,15 +1143,9 @@ export default {
         keypress: (e) => {
           self.onKeyPress(e.target.value);
         },
-        input: (event) => {
-          if (event && event.target) {
-            self.value = event.target.value;
-            self.$emit('input', event.target.value);
-          } else if (!event) {
-            // clear was pressed, reset this
-            self.autocompleteText = '';
-            self.$emit('placechanged', null);
-          }
+        input: (value) => {
+          // NOTE: value is not an event v-text-field only raises this with the actual value
+          this.autocompleteText = value;
         },
       },
     }, []);
@@ -1139,13 +1154,6 @@ export default {
    * @mixin
    */
   watch: {
-    /**
-     * Emit the new autocomplete text whenever it changes.
-     */
-    autocompleteText: function autocompleteText(newVal) {
-      this.$emit('input', newVal || '');
-    },
-
     /**
      * Update the SDK country option whenever it changes from the parent.
      */
